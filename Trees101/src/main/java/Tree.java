@@ -47,9 +47,9 @@ public class Tree {
             node current = root;
             node parent;
             
-            while( true){
+            while(true){
                 parent = current;
-                if( id < current.iData){        //if go left
+                if(id < current.iData){        //if go left
                     current = current.leftChild;
                     if( current == null){
                         parent.leftChild = newNode;
@@ -68,6 +68,31 @@ public class Tree {
         }   //end else not root
     } //end insert
     
+    public void add(int val1) {
+       node NewNode = new node();
+       NewNode.dData = val1;
+       
+       if (root == null) {
+           root = NewNode;
+       } else {
+           node currentNode = root;
+           node dummy;
+           
+           while (true) {
+               dummy = currentNode;
+               if (val1 < currentNode.dData) {
+                   dummy.leftChild = NewNode;
+                   return;
+               } else {
+                   dummy.rightChild = NewNode;
+                   return;
+               }
+               
+           }
+           
+       }
+    }
+    
     
     
     public boolean delete( int key){
@@ -75,7 +100,7 @@ public class Tree {
         node parent = root;
         boolean isLeftChild = true;
         
-        while( current.iData != key){
+        while(current.iData != key){
             parent = current;
             if( key < current.iData){           //go left
                 isLeftChild = true;
@@ -198,14 +223,14 @@ public class Tree {
     }
     
     
-    
+ 
     public void displayTree(){
         Stack globalStack = new Stack();
         globalStack.push(root);
         int nBlanks = 32;
         boolean isRowEmpty = false;
         System.out.println(
-        ".........................................................................");
+        "...............................");
         
         while( isRowEmpty == false){
             Stack localStack = new Stack();
@@ -233,8 +258,7 @@ public class Tree {
                     System.out.print(" ");
                 }
             }
-            System.out.println(
-            "....................................................................");
+            System.out.println(".............................");
         }
         
     }

@@ -66,7 +66,7 @@ public class TreeApp {
                     if( didDelete){
                         putText("Deleted " + value + '\n');
                     }else{
-                        putText("Could not delet " + value + '\n');
+                        putText("Could not delete " + value + '\n');
                     }
                     break;
                 case 't':
